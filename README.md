@@ -16,8 +16,8 @@ Movie World is a modern movie information demo website built using **Next.js**, 
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/movie-world-demo.git
-cd movie-world-demo
+https://github.com/tafsirulislamapon/Movie-World.git
+cd movie-world
 
 ### 2. install dependencies
 npm install
