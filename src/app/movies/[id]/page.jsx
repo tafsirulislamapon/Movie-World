@@ -1,15 +1,16 @@
 import { FaStar } from "react-icons/fa";
 import {movies} from "@/db";
-interface MovieProps {
-  params: {
-    id: string;
-  };
-}
 
-export default function MovieDetails({ params }: MovieProps) {
-
-
+export default function MovieDetails({ params }) {
   const movie = movies.find((movie) => movie.id === params.id);
+
+  if (!movie) {
+    return (
+      <div className="p-8 bg-[#0D0D0D] min-h-screen flex items-center justify-center">
+        <h1 className="text-3xl text-white">Movie not found</h1>
+      </div>
+    );
+  }
 
   return (
     <div className="p-8 space-y-8 bg-[#0D0D0D] min-h-screen">
@@ -57,4 +58,11 @@ export default function MovieDetails({ params }: MovieProps) {
       </div>
     </div>
   );
+}
+
+//this is for vercel to pre-render the routes
+export async function generateStaticParams() {
+  return movies.map((movie) => ({
+    id: movie.id,
+  }));
 }
